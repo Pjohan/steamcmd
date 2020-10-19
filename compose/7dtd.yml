@@ -1,0 +1,23 @@
+version: '2'
+services:
+  7dtdtesteruser:
+    image: pjohan/steamcmd
+    container_name: 7dtdtesteruser
+    restart: unless-stopped
+    ports:
+      - "26900:26900/tcp" # Game (Game details query port)
+      - "26900:26900/udp" # Game (Steam's master server list interface)
+      - "26901:26901/udp" # Game (Steam communication)
+      - "26902:26902/udp" # Game (networking via RakNet)
+      - "26903:26903/udp" # Game (networking via UNET)
+      - "8080:8080/tcp" # Web based control panel
+      - "8082:8082/tcp" # Web Panel of the Server fixes
+      - "8081:8081/tcp" # Telnet
+    volumes:
+      - <steam>:/home/steam/steamcmd
+      - <data>:/home/steam/game
+      - <save>:/root/.local/share/7DaysToDie/
+    environment:
+      - USERID=1001
+      - GROUPID=1001
+      - APPID=294420
