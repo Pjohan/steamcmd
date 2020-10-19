@@ -14,7 +14,7 @@ services:
       - "8082:8082/tcp" # Web Panel of the Server fixes
       - "8081:8081/tcp" # Telnet
     volumes:
-      - <steam>:/home/steam/steamcmd
+      - <steam>>:/home/steam/steamcmd
       - <data>:/home/steam/game
       - <save>:/root/.local/share/7DaysToDie/
     environment:
